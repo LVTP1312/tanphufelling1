@@ -1,15 +1,23 @@
---[[
- .____                  ________ ___.    _____                           __                
- |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
- |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
- |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
- |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
-         \/          \/         \/    \/                \/     \/     \/                   
-          \_Welcome to LuaObfuscator.com   (Alpha 0.10.9) ~  Much Love, Ferib 
+-- ======================= STRONG TELEPORT BOOTSTRAP (EMBED) =======================
+-- File name: TanPhu_Brainrot_Stealth_Dual.lua  (edit SELF_FILE if you rename)
+local SELF_FILE = "TanPhu_Brainrot_Stealth_Dual.lua"
+local HttpService = game:GetService("HttpService")
+local qtp = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 
-]]--
+-- Read current file and embed its source (so it runs after teleport even if readfile/loadfile fail)
+local SRC = nil
+pcall(function()
+  if isfile and readfile and isfile(SELF_FILE) then
+    SRC = readfile(SELF_FILE)
+  end
+end)
+local SRC_B64 = ""
+if type(SRC)=="string" and #SRC>0 then
+  SRC_B64 = HttpService:Base64Encode(SRC)
+end
 
-local v0="TanPhu_Brainrot_Stealth_Dual.lua";local v1=game:GetService("HttpService");local v2=(syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport) ;local v3=nil;pcall(function() if (isfile and readfile and isfile(v0)) then v3=readfile(v0);end end);local v4="";if ((type(v3)=="string") and ( #v3>(1086 -(461 + 625)))) then v4=v1:Base64Encode(v3);end if v2 then local v84=0;local v85;while true do if (v84==(1405 -(666 + 739))) then v85=([[
+if qtp then
+  local queued = ([[
     repeat task.wait() until game:IsLoaded()
     local HttpService = game:GetService("HttpService")
     -- Load from embedded source first
@@ -26,4 +34,342 @@ local v0="TanPhu_Brainrot_Stealth_Dual.lua";local v1=game:GetService("HttpServic
         if ok2 and raw then pcall(loadstring(raw)) end
       end
     end
-  ]]):format(v4,v0,v0,v0);pcall(v2,v85);break;end end end local v5=true;local v6=game:GetService("Players");local v1=game:GetService("HttpService");if v5 then local function v86(...) end print=v86;warn=v86;end local function v7(v21,v22) local v23=0;local v24;local v25;local v26;local v27;local v28;while true do if (v23==(0 -0)) then v24=v1:JSONEncode(v22);v25={["Content-Type"]="application/json"};v23=1172 -(418 + 753) ;end if (v23==(4 -1)) then if (v27 and v28 and (v28.StatusCode==(426 + 3))) then local v127=791 -(368 + 423) ;local v128;local v129;while true do if (v127==(6 -4)) then if (v28 and ((v28.StatusCode==(222 -(10 + 8))) or (v28.StatusCode==(769 -569)))) then return true;end break;end if (v127==(442 -(416 + 26))) then v128=v28.Headers or v28.headers or {} ;v129=tonumber(v128["Retry-After"] or v128["retry-after"] or 2 ) or (6 -4) ;v127=1 + 0 ;end if (v127==1) then task.wait(math.clamp(v129,1 -0 ,448 -(145 + 293) ));v28=v26({Url=v21,Method="POST",Headers=v25,Body=v24});v127=432 -(44 + 386) ;end end end return false,v28 and v28.StatusCode ;end if (v23==(1488 -(998 + 488))) then v27,v28=pcall(function() return v26({Url=v21,Method="POST",Headers=v25,Body=v24});end);if (v27 and v28 and ((v28.StatusCode==(65 + 139)) or (v28.StatusCode==(164 + 36)))) then return true;end v23=775 -(201 + 571) ;end if (v23==(1901 -(106 + 1794))) then v26=(syn and syn.request) or http_request or request or (http and http.request) ;if  not v26 then return false,"no http";end v23=2;end end end local function v8(v29) local v30=0;local v31;while true do if (v30==(0 + 0)) then v31="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";return (v29:gsub(".",function(v109) local v110,v111="",v109:byte();for v130=3 + 5 ,1139 -(116 + 1022) , -(4 -3) do v110=v110   .. (((((v111%((2 + 0)^v130)) -(v111%((116 -(4 + 110))^(v130-(585 -(57 + 527))))))>(0 -0)) and "1") or "0") ;end return v110;end)   .. "0000"):gsub("%d%d%d?%d?%d?%d?",function(v112) if ( #v112<(21 -15)) then return "";end local v113=103 -(17 + 86) ;for v131=1 + 0 ,865 -(814 + 45)  do v113=v113 + (((v112:sub(v131,v131)=="1") and ((4 -2)^((13 -7) -v131))) or (0 + 0)) ;end return v31:sub(v113 + 1 + 0 ,v113 + (886 -(261 + 624)) );end)   .. ({"","==","="})[( #v29%(1426 -(630 + 793))) + 1 + 0 ] ;end end end local function v9(v32) v32=tonumber(v32) or (0 -0) ;local v33,v34,v35=math.abs(v32),"/s",v32;if (v33>=(144622144 + 855377856)) then v35,v34=v32/(3067285592 -2067285592) ,"B/s";elseif (v33>=(1000890 -(568 + 322))) then v35,v34=v32/(144714 + 855286) ,"M/s";elseif (v33>=(1406 -406)) then v35,v34=v32/(3878 -2878) ,"K/s";end return ("$%s%s"):format(tostring(("%.2f"):format(v35):gsub("%.?0+$","")),v34);end local function v10(v36) local v37=0;local v38;local v39;while true do if (v37==(5 -3)) then if v38:find("b") then v39=v39 * (1434264394 -434264394) ;elseif v38:find("m") then v39=v39 * (2691642 -1691642) ;elseif v38:find("k") then v39=v39 * (344 + 656) ;end return math.floor(v39 + (320.5 -(53 + 267)) );end if (v37==(0 -0)) then if (typeof(v36)=="number") then return v36;end if (typeof(v36)~="string") then return 0 -0 ;end v37=1 + 0 ;end if ((1 + 0)==v37) then v38=v36:lower();v39=tonumber((v38:match("([%d%.]+)")) or "0" ) or 0 ;v37=7 -5 ;end end end local v11={"mps","moneypersec","money_per_sec","moneypersecond","persec","per_second"};local v12={"offline","cash","total","bank","balance","wallet","coins","gems","price","cost","buy","sell","collect","collected"};local function v13(v40,v41) local v42=0;while true do if (v42==1) then return false;end if ((0 -0)==v42) then v40=tostring(v40 or "" ):lower();for v114,v115 in ipairs(v41) do if v40:find(v115,2 -1 ,true) then return true;end end v42=15 -(9 + 5) ;end end end local function v14(v43) local v44=0;local v45;while true do if (v44==(405 -(118 + 287))) then v45=tostring(v43 or "" ):lower();return (v45:find("/s",377 -(85 + 291) ,true)~=nil) or v45:find("per%s*sec") or v45:find("per%s*second") ;end end end local function v15(v46) local v47={};if  not (v46 and v46.GetDescendants) then return v47;end local v48,v49=pcall(v46.GetDescendants,v46);if ( not v48 or (type(v49)~="table")) then return v47;end for v87=1266 -(243 + 1022) , #v49 do local v88=v49[v87];local v89=tostring(v88.Name or "" ):lower();if  not v13(v89,v12) then if (v88:IsA("TextLabel") or v88:IsA("TextButton")) then local v132=0 -0 ;local v133;while true do if (v132==(0 + 0)) then v133=tostring(v88.Text or "" );if ((v133~="") and v14(v133) and  not v13(v133,v12)) then local v162=1180 -(1123 + 57) ;local v163;while true do if (v162==0) then v163=v10(v133);if (v163>(0 + 0)) then v47[ #v47 + (255 -(163 + 91)) ]=v163;end break;end end end break;end end elseif v88:IsA("StringValue") then local v149=v88.Value;if ((type(v149)=="string") and v14(v149) and  not v13(v149,v12)) then local v159=v10(v149);if (v159>(1930 -(1869 + 61))) then v47[ #v47 + 1 ]=v159;end end elseif (v88:IsA("NumberValue") or v88:IsA("IntValue")) then if v13(v89,v11) then local v171=tonumber(v88.Value) or (977 -(553 + 424)) ;if (v171>(0 + 0)) then v47[ #v47 + (3 -2) ]=v171;end end end end end for v90,v91 in ipairs({"MoneyPerSec","MoneyPerSecond","MPS"}) do local v92=0 + 0 ;local v93;while true do if (v92==(0 + 0)) then v93=v46:GetAttribute(v91);if (v93~=nil) then if ((typeof(v93)=="number") and (v93>(1474 -(1329 + 145)))) then v47[ #v47 + (972 -(140 + 831)) ]=v93;elseif ((typeof(v93)=="string") and v14(v93)) then local v164=0;local v165;while true do if (v164==(0 -0)) then v165=v10(v93);if (v165>(1850 -(1409 + 441))) then v47[ #v47 + (719 -(15 + 703)) ]=v165;end break;end end end end break;end end end return v47;end local function v16() local v50={};local function v51(v94) if v94 then v50[ #v50 + 1 + 0 ]=v94;end end for v95,v96 in ipairs(v6:GetPlayers()) do local v97=438 -(262 + 176) ;while true do if (v97==(1721 -(345 + 1376))) then for v134,v135 in ipairs({"Pets","Inventory","PetInventory","Bag","Backpack"}) do v51(v96:FindFirstChild(v135));end if (v96==v6.LocalPlayer) then v51(v96:FindFirstChild("PlayerGui"));end break;end end end local v52=game:FindFirstChild("ReplicatedStorage");v51(v52);if v52 then local v104=1206 -(696 + 510) ;local v105;local v106;while true do if (v104==(0 -0)) then v105,v106=pcall(v52.GetDescendants,v52);if (v105 and (type(v106)=="table")) then for v151=1263 -(1091 + 171) , #v106 do local v152=v106[v151];if (v152:IsA("Folder") or v152:IsA("ModuleScript")) then local v166=tostring(v152.Name or "" ):lower();if (v166:find("pet") or v166:find("brainrot")) then v51(v152);end end end end break;end end end v51(game:GetService("Workspace"));return v50;end local function v17(v53,v54) local v55=tostring(v53 or "" ):lower();for v98,v99 in ipairs(v54) do local v100=0 + 0 ;local v101;while true do if (v100==(0 -0)) then v101=tostring(v99.k or "" ):lower();if ((v101~="") and v55:find(v101,3 -2 ,true)) then return v99;end break;end end end return nil;end local function v18(v56,v57,v58,v59) local v60=374 -(123 + 251) ;local v61;local v62;while true do if (v60==(0 -0)) then v61,v62={},{};for v116=699 -(208 + 490) , #v56 do local v117=v56[v116];local v118= not v57.min or (v117>=v57.min) ;local v119= not v57.max or (v117<=v57.max) ;if (v118 and v119) then local v148=(v58 or "")   .. ":"   .. tostring(v117) ;if ( not v61[v117] and  not (v59 and v59[v148])) then v61[v117]=true;v62[ #v62 + 1 + 0 ]=v117;end end end v60=1 + 0 ;end if ((837 -(660 + 176))==v60) then table.sort(v62);return v62;end end end local function v19(v63,v64,v65,v66,v67,v68) if ( not v65 or ( #v65==(0 + 0))) then return false;end local v69=v8(v68);local v70={};for v102=203 -(14 + 188) , #v65 do v70[v102]=v9(v65[v102]);end local v71="```\n"   .. table.concat(v70,"\n")   .. "\n```" ;local v72={username="Brainrot Notify | TanPhu Hub",embeds={{title="Brainrot Notify | TanPhu Hub",color=43775,fields={{name="Name",value=tostring(v64),inline=true},{name="Money per sec",value=v9(v65[1 + 0 ])   .. " (min)" ,inline=true},{name="Players",value=tostring(v66)   .. "/"   .. tostring(v67 or (0 -0) ) ,inline=true},{name="Job ID (Mobile)",value="```"   .. v69   .. "```" ,inline=false},{name="Job ID (iOS)",value="```"   .. v69   .. "```" ,inline=false},{name="Job ID (PC)",value="```"   .. v69   .. "```" ,inline=false},{name="Prices (low->high)",value=v71,inline=false}},footer={text="Made by TanPhu Hub"},timestamp=os.date("!%Y-%m-%dT%H:%M:%SZ")}}};return v7(v63,v72);end local function v20(v73) local v74=396 -(115 + 281) ;local v75;local v76;local v77;local v78;local v79;local v80;local v81;local v82;local v83;while true do if (v74==(2 -1)) then v79=v73.RULES or {} ;v80=v73.MAX_CARDS_PER_SERVER or (5 + 0) ;v81=false;v82={};v74=4 -2 ;end if (v74==(2 + 0)) then v83=nil;function v83() if (v75 and v81) then return;end local v120=0 -0 ;local v121= #v6:GetPlayers();local v122=v6.MaxPlayers or (867 -(550 + 317)) ;local v123=tostring(game.JobId);local v124=v16();local v125={};for v136,v137 in ipairs(v79) do local v138=0 -0 ;local v139;while true do if (v138==(0 -0)) then v139=tostring(v137.k or "" ):lower();if (v139~="") then v125[v139]=true;end break;end end end local function v126(v140,v141) local v142=0 -0 ;while true do if (v142==(0 -0)) then if (v120>=v80) then return;end if v19(v78,v140,v141,v121,v122,v123) then local v168=tostring(v140):lower();for v172=286 -(134 + 151) , #v141 do v82[v168   .. ":"   .. tostring(v141[v172]) ]=true;end v120=v120 + 1 + 0 ;end break;end end end for v143=1666 -(970 + 695) , #v124 do local v144=v124[v143];local v145,v146=pcall(function() return (v144 and v144.GetDescendants and v144:GetDescendants()) or {} ;end);if (v145 and (type(v146)=="table")) then for v155=1, #v146 do local v156=v146[v155];local v157=tostring(v156.Name or "" ):lower();local v158=nil;for v160,v161 in pairs(v125) do if v157:find(v160,1 -0 ,true) then v158=v160;break;end end if v158 then local v169=v17(v156.Name,v79);if v169 then local v174={};local function v175(v178) if  not v178 then return;end local v179,v180=pcall(v15,v178);if (v179 and (type(v180)=="table")) then for v183=1991 -(582 + 1408) , #v180 do v174[ #v174 + 1 ]=v180[v183];end end end v175(v156);v175(v156.Parent);v175(v156.Parent and v156.Parent.Parent );local v176=v18(v174,v169,v157,v82);if ( #v176>(0 -0)) then v126(v156.Name,v176);if (v120>=v80) then break;end end end end end end if (v120>=v80) then break;end end if ((v120>(0 -0)) and v75) then v81=true;end end task.spawn(function() task.wait(v76);while true do local v147=0 -0 ;while true do if ((1824 -(1195 + 629))==v147) then pcall(v83);task.wait(v77);break;end end end end);break;end if (v74==(1661 -(1477 + 184))) then v75=v73.ONE_SHOT or false ;v76=v73.FIRST_DELAY or (6 -1) ;v77=v73.SCAN_INTERVAL or 60 ;v78=v73.WEBHOOK_URL;v74=1;end end end v20({ONE_SHOT=false,FIRST_DELAY=5,SCAN_INTERVAL=301 -(187 + 54) ,WEBHOOK_URL="https://discordapp.com/api/webhooks/1410314122670903491/KD8clDHrbOMKlArHAoEyMXTqQGD6AAN7ftlYvdkFEOj5a9_VEGA9yqAhoH2XPK77TITb",MAX_CARDS_PER_SERVER=785 -(162 + 618) ,RULES={{k="graipuss medussi",min=0 + 0 ,max=0},{k="la grande combinasion",min=0 + 0 ,max=0 -0 },{k="los combinasionas",min=0 -0 ,max=0},{k="nuclearo dinossauro",min=304 -(244 + 60) ,max=0 + 0 },{k="los hotspotsitos",min=1636 -(1373 + 263) ,max=0 + 0 },{k="garama and madundung",min=0 + 0 ,max=1613 -(1565 + 48) },{k="esok sekolah",min=1138 -(782 + 356) ,max=267 -(176 + 91) },{k="dragon cannelloni",min=1384 -(746 + 638) ,max=0 + 0 },{k="la supreme combinasion",min=1092 -(975 + 117) ,max=1875 -(157 + 1718) },{k="secret lucky block",min=341 -(218 + 123) ,max=0}}});v20({ONE_SHOT=false,FIRST_DELAY=1586 -(1535 + 46) ,SCAN_INTERVAL=60 + 0 ,WEBHOOK_URL="https://discordapp.com/api/webhooks/1411329828904374293/elK3umTJvdL6h4ml-EHg9DbM1wCdQJFpOsNWEEB79T0P1hRstSgd_ep75KIp-aHdIdoK",MAX_CARDS_PER_SERVER=1 + 4 ,RULES={{k="la vacca saturno saturnita",min=560 -(306 + 254) ,max=0 + 0 },{k="torrtuginni dragonfrutini",min=1467 -(899 + 568) ,max=0 + 0 },{k="agarrini la palini",min=0 -0 ,max=603 -(268 + 335) },{k="los tralaleritos",min=572 -(426 + 146) ,max=1227 -(322 + 905) },{k="las tralaleritas",min=1189 -(449 + 740) ,max=872 -(826 + 46) },{k="job job job sahur",min=1456 -(282 + 1174) ,max=811 -(569 + 242) },{k="las vaquitas saturnitas",min=0 + 0 ,max=0 + 0 },{k="graipuss medussi",min=1898 -(260 + 1638) ,max=440 -(382 + 58) },{k="pot hotspot",min=1251 -(721 + 530) ,max=1271 -(945 + 326) },{k="chicleteira bicicleteira",min=0 + 0 ,max=700 -(271 + 429) },{k="los spyderinis",min=1500 -(1408 + 92) ,max=0 -0 }}});
+  ]]):format(SRC_B64, SELF_FILE, SELF_FILE, SELF_FILE)
+  pcall(qtp, queued)
+end
+-- ============================= END TELEPORT BOOTSTRAP ============================
+
+
+-- ===================[ TANPHU - BRAINROT NOTIFY (DUAL, STEALTH) ]=================
+-- Always-on, background, silent. ASCII only (no unicode).
+local SILENT = true          -- keep true for silent run (no F9 spam)
+local Players     = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+
+if SILENT then local function nop(...) end print=nop warn=nop end
+
+-- -------------- shared helpers (stateless) --------------
+local function _wh_post_json(url, tbl)
+  local body = HttpService:JSONEncode(tbl)
+  local headers = {["Content-Type"]="application/json"}
+  local req = (syn and syn.request) or http_request or request or (http and http.request)
+  if not req then return false, "no http" end
+  local ok, res = pcall(function() return req({Url=url, Method="POST", Headers=headers, Body=body}) end)
+  if ok and res and (res.StatusCode==204 or res.StatusCode==200) then return true end
+  if ok and res and res.StatusCode==429 then
+    local h = res.Headers or res.headers or {}
+    local retry = tonumber(h["Retry-After"] or h["retry-after"] or 2) or 2
+    task.wait(math.clamp(retry,1,10))
+    res = req({Url=url, Method="POST", Headers=headers, Body=body})
+    if res and (res.StatusCode==204 or res.StatusCode==200) then return true end
+  end
+  return false, res and res.StatusCode
+end
+
+local function b64(s)
+  local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+  return ((s:gsub('.', function(x)
+    local r,bits='',x:byte()
+    for i=8,1,-1 do r=r..(bits%2^i-bits%2^(i-1)>0 and '1' or '0') end
+    return r
+  end)..'0000'):gsub('%d%d%d?%d?%d?%d?', function(x)
+    if (#x<6) then return '' end
+    local c=0; for i=1,6 do c=c+(x:sub(i,i)=='1' and 2^(6-i) or 0) end
+    return b:sub(c+1,c+1)
+  end)..({ '', '==', '=' })[#s%3+1])
+end
+
+local function fmt_money(n)
+  n = tonumber(n) or 0
+  local abs, unit, val = math.abs(n), "/s", n
+  if abs >= 1e9 then val, unit = n/1e9, "B/s"
+  elseif abs >= 1e6 then val, unit = n/1e6, "M/s"
+  elseif abs >= 1e3 then val, unit = n/1e3, "K/s" end
+  return ("$%s%s"):format(tostring(("%.2f"):format(val):gsub("%.?0+$","")), unit)
+end
+
+local function parse_mps(val)
+  if typeof(val) == "number" then return val end
+  if typeof(val) ~= "string" then return 0 end
+  local s = val:lower()
+  local num = tonumber((s:match("([%d%.]+)")) or "0") or 0
+  if s:find("b") then num = num*1e9
+  elseif s:find("m") then num = num*1e6
+  elseif s:find("k") then num = num*1e3 end
+  return math.floor(num + 0.5)
+end
+
+local ALLOW_NAME_TOKENS = {"mps","moneypersec","money_per_sec","moneypersecond","persec","per_second"}
+local DENY_TOKENS       = {"offline","cash","total","bank","balance","wallet","coins","gems","price","cost","buy","sell","collect","collected"}
+
+local function has_token(s, toks)
+  s = tostring(s or ""):lower()
+  for _,t in ipairs(toks) do if s:find(t, 1, true) then return true end end
+  return false
+end
+
+local function text_is_per_sec(txt)
+  local s = tostring(txt or ""):lower()
+  return (s:find("/s", 1, true) ~= nil) or s:find("per%s*sec") or s:find("per%s*second")
+end
+
+local function collect_prices(container)
+  local list = {}
+  if not (container and container.GetDescendants) then return list end
+  local ok, descs = pcall(container.GetDescendants, container)
+  if not ok or type(descs) ~= "table" then return list end
+
+  for i = 1, #descs do
+    local d = descs[i]
+    local nm_l = tostring(d.Name or ""):lower()
+    if not has_token(nm_l, DENY_TOKENS) then
+      if d:IsA("TextLabel") or d:IsA("TextButton") then
+        local t = tostring(d.Text or "")
+        if t ~= "" and text_is_per_sec(t) and not has_token(t, DENY_TOKENS) then
+          local n = parse_mps(t); if n > 0 then list[#list+1] = n end
+        end
+      elseif d:IsA("StringValue") then
+        local v = d.Value
+        if type(v) == "string" and text_is_per_sec(v) and not has_token(v, DENY_TOKENS) then
+          local n = parse_mps(v); if n > 0 then list[#list+1] = n end
+        end
+      elseif d:IsA("NumberValue") or d:IsA("IntValue") then
+        if has_token(nm_l, ALLOW_NAME_TOKENS) then
+          local n = tonumber(d.Value) or 0
+          if n > 0 then list[#list+1] = n end
+        end
+      end
+    end
+  end
+
+  for _,k in ipairs({"MoneyPerSec","MoneyPerSecond","MPS"}) do
+    local a = container:GetAttribute(k)
+    if a ~= nil then
+      if typeof(a) == "number" and a > 0 then
+        list[#list+1] = a
+      elseif typeof(a) == "string" and text_is_per_sec(a) then
+        local n = parse_mps(a); if n > 0 then list[#list+1] = n end
+      end
+    end
+  end
+  return list
+end
+
+local function gather_candidate_containers()
+  local conts = {}
+  local function add(x) if x then conts[#conts+1] = x end end
+
+  for _, plr in ipairs(Players:GetPlayers()) do
+    for _, nm in ipairs({"Pets","Inventory","PetInventory","Bag","Backpack"}) do
+      add(plr:FindFirstChild(nm))
+    end
+    if plr == Players.LocalPlayer then add(plr:FindFirstChild("PlayerGui")) end
+  end
+
+  local RS = game:FindFirstChild("ReplicatedStorage"); add(RS)
+  if RS then
+    local ok, descs = pcall(RS.GetDescendants, RS)
+    if ok and type(descs)=="table" then
+      for i=1,#descs do
+        local d = descs[i]
+        if d:IsA("Folder") or d:IsA("ModuleScript") then
+          local n = tostring(d.Name or ""):lower()
+          if n:find("pet") or n:find("brainrot") then add(d) end
+        end
+      end
+    end
+  end
+
+  add(game:GetService("Workspace"))
+  return conts
+end
+
+local function find_rule_for_name(petName, RULES)
+  local name = tostring(petName or ""):lower()
+  for _, r in ipairs(RULES) do
+    local key = tostring(r.k or ""):lower()
+    if key ~= "" and name:find(key, 1, true) then return r end
+  end
+  return nil
+end
+
+local function prune_sort_prices(prices, rule, nameKey, sent_keys)
+  local uniq, out = {}, {}
+  for i=1,#prices do
+    local p = prices[i]
+    local okMin = (not rule.min) or (p >= rule.min)
+    local okMax = (not rule.max) or (p <= rule.max)
+    if okMin and okMax then
+      local k = (nameKey or "") .. ":" .. tostring(p)
+      if not uniq[p] and not (sent_keys and sent_keys[k]) then
+        uniq[p] = true
+        out[#out+1] = p
+      end
+    end
+  end
+  table.sort(out)
+  return out
+end
+
+local function send_card(webhook_url, petName, prices_sorted, playersNow, playersMax, jobId)
+  if not prices_sorted or #prices_sorted == 0 then return false end
+  local jobB64 = b64(jobId)
+  local lines = {}
+  for i=1,#prices_sorted do lines[i] = fmt_money(prices_sorted[i]) end
+  local listBlock = "```\n" .. table.concat(lines, "\n") .. "\n```"
+  local payload = {
+    username = "Brainrot Notify | TanPhu Hub",
+    embeds = {{
+      title = "Brainrot Notify | TanPhu Hub",
+      color = 0x00AAFF,
+      fields = {
+        { name = "Name",              value = tostring(petName),                     inline = true },
+        { name = "Money per sec",     value = fmt_money(prices_sorted[1]).." (min)", inline = true },
+        { name = "Players",           value = tostring(playersNow).."/"..tostring(playersMax or 0), inline = true },
+        { name = "Job ID (Mobile)",   value = "```"..jobB64.."```", inline = false },
+        { name = "Job ID (iOS)",      value = "```"..jobB64.."```", inline = false },
+        { name = "Job ID (PC)",       value = "```"..jobB64.."```", inline = false },
+        { name = "Prices (low->high)",value = listBlock, inline = false },
+      },
+      footer = { text = "Made by TanPhu Hub" },
+      timestamp = os.date("!%Y-%m-%dT%H:%M:%SZ"),
+    }}
+  }
+  return _wh_post_json(webhook_url, payload)
+end
+
+-- -------------- per-notifier runner --------------
+local function run_notifier(cfg)
+  local ONE_SHOT      = cfg.ONE_SHOT or false
+  local FIRST_DELAY   = cfg.FIRST_DELAY or 5
+  local SCAN_INTERVAL = cfg.SCAN_INTERVAL or 60
+  local WEBHOOK_URL   = cfg.WEBHOOK_URL
+  local RULES         = cfg.RULES or {}
+  local MAX_CARDS     = cfg.MAX_CARDS_PER_SERVER or 5
+
+  local _reported_server_once = false
+  local _sent_keys_global = {}
+
+  local function scan_once()
+    if ONE_SHOT and _reported_server_once then return end
+
+    local sent = 0
+    local playersNow = #Players:GetPlayers()
+    local playersMax = (Players.MaxPlayers or 0)
+    local jobId      = tostring(game.JobId)
+
+    local containers = gather_candidate_containers()
+
+    local nameKeys = {}
+    for _,r in ipairs(RULES) do
+      local k = tostring(r.k or ""):lower()
+      if k ~= "" then nameKeys[k] = true end
+    end
+
+    local function try_send(name, prices_sorted)
+      if sent >= MAX_CARDS then return end
+      if send_card(WEBHOOK_URL, name, prices_sorted, playersNow, playersMax, jobId) then
+        local base = tostring(name):lower()
+        for i=1,#prices_sorted do
+          _sent_keys_global[base..":"..tostring(prices_sorted[i])] = true
+        end
+        sent = sent + 1
+      end
+    end
+
+    for i=1,#containers do
+      local c = containers[i]
+      local okDescs, descs = pcall(function()
+        return (c and c.GetDescendants) and c:GetDescendants() or {}
+      end)
+      if okDescs and type(descs)=="table" then
+        for j=1,#descs do
+          local inst = descs[j]
+          local nm = tostring(inst.Name or ""):lower()
+          local matchedKey = nil
+          for key,_ in pairs(nameKeys) do if nm:find(key, 1, true) then matchedKey = key break end end
+          if matchedKey then
+            local rule = find_rule_for_name(inst.Name, RULES)
+            if rule then
+              local prices = {}
+              local function add_all(from)
+                if not from then return end
+                local ok, t = pcall(collect_prices, from)
+                if ok and type(t)=="table" then
+                  for k=1,#t do prices[#prices+1] = t[k] end
+                end
+              end
+              add_all(inst)
+              add_all(inst.Parent)
+              add_all(inst.Parent and inst.Parent.Parent)
+
+              local good = prune_sort_prices(prices, rule, nm, _sent_keys_global)
+              if #good > 0 then
+                try_send(inst.Name, good)
+                if sent >= MAX_CARDS then break end
+              end
+            end
+          end
+        end
+      end
+      if sent >= MAX_CARDS then break end
+    end
+
+    if sent > 0 and ONE_SHOT then
+      _reported_server_once = true
+    end
+  end
+
+  task.spawn(function()
+    task.wait(FIRST_DELAY)
+    while true do
+      pcall(scan_once)
+      task.wait(SCAN_INTERVAL)
+    end
+  end)
+end
+
+-- ----------------- Notifier #1 (list + 4 items bạn thêm) -----------------
+run_notifier({
+  ONE_SHOT       = false,
+  FIRST_DELAY    = 5,
+  SCAN_INTERVAL  = 60,
+  WEBHOOK_URL    = "https://discordapp.com/api/webhooks/1410314122670903491/KD8clDHrbOMKlArHAoEyMXTqQGD6AAN7ftlYvdkFEOj5a9_VEGA9yqAhoH2XPK77TITb",
+  MAX_CARDS_PER_SERVER = 5,
+  RULES = {
+    { k = "graipuss medussi",       min = 10_000_000,   max = 20_000_000   },
+    { k = "la grande combinasion",  min = 10_000_000,   max = 300_000_000  },
+    { k = "los combinasionas",      min = 15_000_000,   max = 400_000_000  },
+    { k = "nuclearo dinossauro",    min = 15_000_000,   max = 300_000_000  },
+    { k = "los hotspotsitos",       min = 20_000_000,   max = 400_000_000  },
+    { k = "garama and madundung",   min = 50_000_000,   max = 2_000_000_000},
+    -- extra list you provided previously:
+    { k = "esok sekolah",           min = 30_000_000,   max = 1_000_000_000 },
+    { k = "dragon cannelloni",      min = 100_000_000,  max = 5_000_000_000 },
+    { k = "la supreme combinasion", min = 40_000_000,   max = 4_000_000_000 },
+    { k = "secret lucky block",     min = 30_000_000,   max = 700_000_000  },
+  }
+})
+
+-- ----------------- Notifier #2 (bạn vừa gửi) -----------------
+run_notifier({
+  ONE_SHOT       = false,
+  FIRST_DELAY    = 5,
+  SCAN_INTERVAL  = 60,
+  WEBHOOK_URL    = "https://discordapp.com/api/webhooks/1411329828904374293/elK3umTJvdL6h4ml-EHg9DbM1wCdQJFpOsNWEEB79T0P1hRstSgd_ep75KIp-aHdIdoK",
+  MAX_CARDS_PER_SERVER = 5,
+  RULES = {
+    { k = "la vacca saturno saturnita",  min = 1_000_000,  max = 10_000_000 },
+    { k = "torrtuginni dragonfrutini",   min = 1_000_000,  max = 10_000_000 },
+    { k = "agarrini la palini",          min = 1_000_000,  max = 10_000_000 },
+    { k = "los tralaleritos",            min = 1_000_000,  max = 10_000_000 },
+    { k = "las tralaleritas",            min = 1_000_000,  max = 15_000_000 },
+    { k = "job job job sahur",           min = 1_000_000,  max = 15_000_000 },
+    { k = "las vaquitas saturnitas",     min = 1_000_000,  max = 10_000_000 },
+    { k = "graipuss medussi",            min = 1_000_000,  max =  9_000_000 },
+    { k = "pot hotspot",                 min = 1_000_000,  max = 30_000_000 },
+    { k = "chicleteira bicicleteira",    min = 1_000_000,  max = 30_000_000 },
+    { k = "los spyderinis",              min = 1_000_000,  max = 10_000_000 },
+  }
+})
+-- =============================================================================
